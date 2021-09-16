@@ -44,7 +44,17 @@
   "lint-staged": {
     "*.{js,css,md,ts,tsx}": "prettier --write"
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog-zh"
+    }
+  },
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "commitizen": "^4.2.4",
+    "conventional-changelog-cli": "^2.1.1",
+    "cz-conventional-changelog-zh": "^0.0.2",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
