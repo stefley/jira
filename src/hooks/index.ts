@@ -5,7 +5,7 @@ export const useMount = (cb: Function) => {
   }, []);
 };
 
-export const useDebounce = (value: any, delay = 60) => {
+export const useDebounce = <T>(value: T, delay = 60): T => {
   const [val, setVal] = useState(value);
   useEffect(() => {
     const timer = setTimeout(() => {
