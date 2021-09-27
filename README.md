@@ -11,3 +11,6 @@ style 不影响程序逻辑的代码修改(修改空白字符，格式缩进，�
 test 新增测试用例或是更新现有测试
 revert 回滚某个更早之前的提交
 chore 不属于以上类型的其他类型
+
+json-server-script:(package.json 启动 json-server 命令)  
+"json-server": "json-server **json_server_mock**/db.json --watch --port 3001 --middlewares ./**json_server_mock**/middleware.js"
