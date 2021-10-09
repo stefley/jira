@@ -1,6 +1,4 @@
 module.exports = (req, res, next) => {
-  console.log("========================");
-  console.log(res.path);
   if (req.method === "POST" && req.path === "/login") {
     console.log("-----------------------");
     if (req.body.username === "jira" && req.body.password === "123") {
