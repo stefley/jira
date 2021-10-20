@@ -1,4 +1,3 @@
-import React from "react";
 import qs from "qs";
 import * as auth from "auth-provider";
 import { useAuth } from "context/auth-context";

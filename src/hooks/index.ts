@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 export const useMount = (cb: Function) => {
   useEffect(() => {
     cb();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
 

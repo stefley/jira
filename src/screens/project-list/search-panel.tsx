@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Select } from "antd";
+import { Form, Input, Select } from "antd";
 export interface User {
   id: string;
   name: string;
@@ -18,25 +18,28 @@ interface ISearchPanel {
 }
 export const SearchPanel = ({ param, users, setParam }: ISearchPanel) => {
   return (
-    <form action="">
-      <div>
+    <Form style={{ marginBottom: "2rem" }} layout="inline">
+      <Form.Item>
         <Input
+          placeholder="项目名"
           type="text"
           value={param.name}
           onChange={(evt) => setParam({ ...param, name: evt.target.value })}
         />
+      </Form.Item>
+      <Form.Item>
         <Select
+          style={{ width: 120 }}
           value={param.personId}
           onChange={(value) => setParam({ ...param, personId: value })}
         >
-          <option value="">负责人</option>
           {users.map((user) => (
             <Select.Option value={user.id} key={user.id}>
               {user.name}
             </Select.Option>
           ))}
         </Select>
-      </div>
-    </form>
+      </Form.Item>
+    </Form>
   );
 };
