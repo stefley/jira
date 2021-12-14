@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Pin } from "components/pin";
 import { useEditProject } from "utils/projects";
 import { ButtonNoPadding } from "components/lib";
+import { projectListActions } from "./project-list.slice";
 
 export interface Project {
   id: number;
@@ -18,7 +19,6 @@ export interface Project {
 interface IListProps extends TableProps<Project> {
   users: User[];
   refresh?: () => void;
-  projectButton: JSX.Element;
 }
 export const List = ({ users, ...props }: IListProps) => {
   const { mutate } = useEditProject();
@@ -81,7 +81,13 @@ export const List = ({ users, ...props }: IListProps) => {
               <Dropdown
                 overlay={
                   <Menu>
-                    <Menu.Item key={"edit"}>{props.projectButton}</Menu.Item>
+                    <Menu.Item key={"edit"}>
+                      <ButtonNoPadding
+                        onClick={() => projectListActions.openProjectModal()}
+                      >
+                        编辑
+                      </ButtonNoPadding>
+                    </Menu.Item>
                   </Menu>
                 }
               >
