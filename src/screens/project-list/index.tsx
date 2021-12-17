@@ -5,25 +5,27 @@ import { List } from "./list";
 import { useDebounce, useDocumentTitle } from "hooks";
 import { useProject } from "utils/projects";
 import { useUsers } from "utils/user";
-import { useProjectsSearchParams } from "./util";
+import { useProjectModal, useProjectsSearchParams } from "./util";
 import { Button } from "antd";
-import { Row } from "components/lib";
+import { ButtonNoPadding, Row } from "components/lib";
 
-export const ProjectListScreen = (props: { projcetButton: JSX.Element }) => {
+export const ProjectListScreen = () => {
   useDocumentTitle("项目列表");
   const [param, setParam] = useProjectsSearchParams();
   const { isLoading, data: list, retry } = useProject(useDebounce(param, 1000));
   const { data: users } = useUsers();
+  const { open } = useProjectModal();
 
   return (
     <Container>
       <Row between={true}>
         <h1>项目列表</h1>
-        {props.projcetButton}
+        <ButtonNoPadding onClick={open} type="link">
+          创建项目
+        </ButtonNoPadding>
       </Row>
       <SearchPanel param={param} setParam={setParam} users={users || []} />
       <List
-        projectButton={props.projcetButton}
         refresh={retry}
         dataSource={list || []}
         users={users || []}
