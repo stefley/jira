@@ -12,7 +12,7 @@ import { ButtonNoPadding, Row } from "components/lib";
 export const ProjectListScreen = () => {
   useDocumentTitle("项目列表");
   const [param, setParam] = useProjectsSearchParams();
-  const { isLoading, data: list, retry } = useProject(useDebounce(param, 1000));
+  const { isLoading, data: list } = useProject(useDebounce(param, 1000));
   const { data: users } = useUsers();
   const { open } = useProjectModal();
 
@@ -25,12 +25,7 @@ export const ProjectListScreen = () => {
         </ButtonNoPadding>
       </Row>
       <SearchPanel param={param} setParam={setParam} users={users || []} />
-      <List
-        refresh={retry}
-        dataSource={list || []}
-        users={users || []}
-        loading={isLoading}
-      />
+      <List dataSource={list || []} users={users || []} loading={isLoading} />
     </Container>
   );
 };

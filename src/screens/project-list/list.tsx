@@ -18,13 +18,14 @@ export interface Project {
 }
 interface IListProps extends TableProps<Project> {
   users: User[];
-  refresh?: () => void;
 }
 export const List = ({ users, ...props }: IListProps) => {
   const { open } = useProjectModal();
   const { mutate } = useEditProject();
-  const pinProject = (id: number) => (pin: boolean) =>
-    mutate({ id, pin }).then(props.refresh);
+  const { startEdit } = useProjectModal();
+  const editProject = (id: number) => () => startEdit(id);
+  const pinProject = (id: number) => (pin: boolean) => mutate({ id, pin });
+
   return (
     <Table
       rowKey={(record) => record.id}
@@ -77,16 +78,15 @@ export const List = ({ users, ...props }: IListProps) => {
           },
         },
         {
-          render(val, project) {
+          render(value, project) {
             return (
               <Dropdown
                 overlay={
                   <Menu>
-                    <Menu.Item key={"edit"}>
-                      <ButtonNoPadding onClick={open} type="link">
-                        创建项目
-                      </ButtonNoPadding>
+                    <Menu.Item key={"edit"} onClick={editProject(project?.id)}>
+                      编辑
                     </Menu.Item>
+                    <Menu.Item key={"delete"}>删除</Menu.Item>
                   </Menu>
                 }
               >
