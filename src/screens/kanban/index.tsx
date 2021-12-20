@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { ScreenContainer } from "components/lib";
 import { useDocumentTitle } from "hooks";
 import React from "react";
 import { useKanbans } from "utils/kanban";
@@ -10,19 +11,20 @@ export const KanbanScreen = () => {
   const { data: currentProject } = useProjectInUrl();
   const { data: kanbans } = useKanbans();
   return (
-    <div>
+    <ScreenContainer>
       <h1>{currentProject?.name}看板</h1>
       <ColumnContainer>
         {kanbans?.map((kanban) => (
           <KanbanCoulmn key={kanban?.id} kanban={kanban} />
         ))}
       </ColumnContainer>
-    </div>
+    </ScreenContainer>
   );
 };
 
 const ColumnContainer = styled.div`
   display: flex;
-  overflow: hidden;
+  flex: 1;
+  overflow-x: scroll;
   margin-right: 2rem;
 `;
