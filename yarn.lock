@@ -2227,6 +2227,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-query@^1.2.9":
+  version "1.2.9"
+  resolved "https://registry.npmmirror.com/@types/react-query/download/@types/react-query-1.2.9.tgz#61df5a0594ea4b90234f9c0fdd8f12a06e331fed"
+  integrity sha1-Yd9aBZTqS5AjT5wP3Y8SoG4zH+0=
+  dependencies:
+    react-query "*"
+
 "@types/react@*", "@types/react@^17.0.0":
   version "17.0.24"
   resolved "https://registry.nlark.com/@types/react/download/@types/react-17.0.24.tgz#7e1b3f78d0fc53782543f9bce6d949959a5880bd"
@@ -11312,6 +11319,15 @@ react-query-devtools@^2.6.3:
   integrity sha1-98mCg51LAAHO5NXd+oJkk8L2NB8=
   dependencies:
     match-sorter "^4.1.0"
+
+react-query@*:
+  version "3.34.5"
+  resolved "https://registry.npmmirror.com/react-query/download/react-query-3.34.5.tgz#a145c02f58088c5c83c91697cece50e89b4dbfd8"
+  integrity sha512-qk1hYo+y90LGY5W4kNEYT5yCk8gyL1fVTMoRZfzBTaSdaZWOcdvij36MmkhIqiPdXoEt5pBvX2ejokazwq8haw==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    broadcast-channel "^3.4.1"
+    match-sorter "^6.0.2"
 
 react-query@^2.26.3:
   version "2.26.4"

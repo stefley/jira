@@ -5,14 +5,18 @@ import { ErrorBox } from "components/lib";
 import { UserSelect } from "components/user-select";
 import { useEffect } from "react";
 import { useAddProject, useEditProject } from "utils/projects";
-import { useProjectModal } from "./util";
+import { useProjectModal, useProjectsQueryKey } from "./util";
 
 export const ProjectModal = () => {
   const { projectModalOpen, close, editingProject, isLoading } =
     useProjectModal();
   const useMutateProject = editingProject ? useEditProject : useAddProject;
 
-  const { mutateAsync, error, isLoading: mutateLoading } = useMutateProject();
+  const {
+    mutateAsync,
+    error,
+    isLoading: mutateLoading,
+  } = useMutateProject(useProjectsQueryKey());
   const [form] = useForm();
 
   const onFinish = (values: any) => {
@@ -20,6 +24,11 @@ export const ProjectModal = () => {
       form.resetFields();
       close();
     });
+  };
+
+  const closeModal = () => {
+    form.resetFields();
+    close();
   };
 
   const title = editingProject ? "编辑项目" : "创建项目";
@@ -33,7 +42,7 @@ export const ProjectModal = () => {
       forceRender
       width={"100%"}
       visible={projectModalOpen}
-      onClose={close}
+      onClose={closeModal}
     >
       <Container>
         {isLoading ? (

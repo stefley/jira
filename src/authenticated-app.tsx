@@ -22,7 +22,7 @@ export const AuthenticateApp = () => {
           <Routes>
             <Route path="/projects" element={<ProjectListScreen />} />
             <Route path="/projects/:projectId/*" element={<ProjectScreen />} />
-            <Navigate to={"projects"} />
+            <Navigate to={window.location.pathname + "/kanban"} replace />
           </Routes>
         </Main>
         <ProjectModal />
