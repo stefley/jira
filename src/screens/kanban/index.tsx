@@ -8,6 +8,7 @@ import { useKanbans } from "utils/kanban";
 import { useTasks } from "utils/task";
 import { CreateKanab } from "./creat-kanban";
 import { KanbanCoulmn } from "./kanban-column";
+import { TaskModal } from "./task-modal";
 import { useProjectInUrl, useTasksSearchParams } from "./util";
 
 export const KanbanScreen = () => {
@@ -30,6 +31,7 @@ export const KanbanScreen = () => {
           <CreateKanab />
         </ColumnContainer>
       )}
+      <TaskModal />
     </ScreenContainer>
   );
 };
