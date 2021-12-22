@@ -14,7 +14,7 @@ import { ProjectModal } from "screens/project-list/project-modal";
 import { ProjectPopover } from "components/project-popover";
 import { UserPopover } from "components/user-popover";
 
-export const AuthenticateApp = () => {
+export default () => {
   return (
     <Container>
       <Router>
