@@ -24,7 +24,7 @@ export const useProject = (params?: Partial<Project>) => {
   //   });
   // }, [params, run, fetchProjects]);
   // return result;
-  return useQuery<Project[]>(["projects", params], () =>
+  return useQuery<Project[]>(["projects", cleanObject(params)], () =>
     client("projects", { data: params })
   );
 };

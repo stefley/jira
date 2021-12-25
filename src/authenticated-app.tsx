@@ -8,7 +8,6 @@ import { Dropdown, Menu, Button } from "antd";
 // import softwareLogo from 'assets/software-logo.svg'
 import { ReactComponent as SoftwareLogo } from "assets/software-logo.svg";
 import { Route, Routes, Navigate } from "react-router";
-import { BrowserRouter as Router } from "react-router-dom";
 import { resetRoute } from "utils";
 import { ProjectModal } from "screens/project-list/project-modal";
 import { ProjectPopover } from "components/project-popover";
@@ -17,17 +16,15 @@ import { UserPopover } from "components/user-popover";
 export default () => {
   return (
     <Container>
-      <Router>
-        <PageHeader />
-        <Main>
-          <Routes>
-            <Route path="/projects" element={<ProjectListScreen />} />
-            <Route path="/projects/:projectId/*" element={<ProjectScreen />} />
-            <Navigate to={window.location.pathname + "/kanban"} replace />
-          </Routes>
-        </Main>
-        <ProjectModal />
-      </Router>
+      <PageHeader />
+      <Main>
+        <Routes>
+          <Route path="/projects" element={<ProjectListScreen />} />
+          <Route path="/projects/:projectId/*" element={<ProjectScreen />} />
+          <Navigate to={window.location.pathname + "/kanban"} replace />
+        </Routes>
+      </Main>
+      <ProjectModal />
     </Container>
   );
 };

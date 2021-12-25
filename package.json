@@ -94,6 +94,7 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@testing-library/react-hooks": "^7.0.2",
     "@types/qs": "^6.9.7",
     "@types/react-beautiful-dnd": "^13.1.2",
     "@welldone-software/why-did-you-render": "^6.2.1",
@@ -104,6 +105,7 @@
     "husky": "^7.0.2",
     "json-server": "^0.16.3",
     "lint-staged": "^11.1.2",
+    "msw": "^0.36.3",
     "prettier": "2.4.0"
   },
   "msw": {
